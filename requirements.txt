@@ -1,5 +1,4 @@
 streamlit
-gensim
-time
+gensim==4.1.2
 pandas
 numpy
