@@ -2,7 +2,7 @@ import pandas as pd
 import numpy as np
 import streamlit as st
 import gensim
-import time
+#import time
 
 # Load the data and models
 # dictionary based on all having news
@@ -39,7 +39,7 @@ corpus_len_perc = st.sidebar.slider("Which percentage of the whole news to use",
 corpus_len = int(corpus_len_perc*len(corpus)/100)
 result = st.button('Start search')
 if result:
-	start_time = time.time()
+	#start_time = time.time()
 	for strt in range(0,corpus_len,10000):
 		index = 0
 		fin = min([strt+10000,corpus_len])
@@ -50,9 +50,9 @@ if result:
 			sims = np.concatenate((sims,index[vec]), axis=0)
 	sims = sorted(enumerate(sims), key=lambda item: -item[1])
 	# the time of execution
-	exectime = round((time.time() - start_time)/60.0,1)
-	prntstr = 'The search is finished in ' + str(exectime) + " minutes"
-	st.write(prntstr)
+	# exectime = round((time.time() - start_time)/60.0,1)
+	#prntstr = 'The search is finished in ' + str(exectime) + " minutes"
+	st.write('The search is finished')
 
 # How many search results to show
 showdata = st.sidebar.slider("How many search results to show", min_value=1, max_value=10, value=3)
